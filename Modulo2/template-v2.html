@@ -1,0 +1,38 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.10"></script>
+
+<div id="app">
+    <h1>{{ obtertitulo() }}</h1>
+    <p>{{ moises }}</p>
+    <p>{{ saudacao() }}</p>
+    <p>{{ saudacao2() }}</p>
+    <a v-bind:href="link">Google</a>
+    <p>a v-bind:href="">Google /a O v:bind faz interpretação de propriedades</p>
+    <h1 v-once>usando v-once o valor {{ dado }} serar atualizado apenas uma vez</h1>
+    <P v-html="linkhtml"></P>
+    
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            moises: 'o cpf de moises é 06967488511',
+            titulo: 'aprendendo vue',
+            link: 'https://github.com/',
+            dado: 'DADO',
+            linkhtml: '<a href="google.com"> entrar no google</a>'
+        },
+        methods: {
+            saudacao: function(){
+                return 'boa semana!'
+            },
+            saudacao2(){
+                return 'boa semana 2'
+            },
+            obtertitulo(){
+                return this.titulo
+            }
+
+        }
+    })
+</script>
