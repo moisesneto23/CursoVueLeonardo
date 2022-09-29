@@ -1,0 +1,50 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.10"></script>
+<style>
+    .demo{
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+        
+    }
+    #app {
+        display:flex;
+        justify-content: space-between;
+    }
+    .c1{
+    background-color: red;
+    }
+    #c2{
+    background-color: green;
+    }
+    .c3{
+    background-color: blue;
+    }
+</style>
+
+<div id="app" >
+    <div 
+    :class="variavel" 
+    @click="mudarCss()"></div>
+    
+    <div class="demo c2" :id="variavel" @click="mudarCss()"></div>
+    <div class="demo c3" ></div>
+   
+</div>
+
+<script>
+    new Vue({
+        
+        el: '#app',
+        data: {
+            variavel: 'demo c1',
+            aplicarc1: false,
+
+        },
+        methods: {
+            mudarCss(){
+                if(this.variavel === 'c2')this.variavel = 'c1'; else this.variavel = 'c2';
+                console.log(this.variavel)
+            }
+        }
+    })
+</script>
