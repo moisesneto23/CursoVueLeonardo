@@ -1,0 +1,22 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.10"></script>
+<h1>Diretivas do vue propriedade reativa</h1>
+<p>v-bind é igual a ":" e serve para passar valor para uma propriedade do html pela propriedade do vue</p>
+<p>v-on é igual "@"</p>
+<p> a propriedade reativa comum é o v-bind utilizadas em input</p>
+<div id="app">
+    <p>{{ moises }}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            moises: 'o cpf de moises é 06967488511'
+        },
+        methods: {
+            aumentar(){
+                
+            }
+        }
+    })
+</script>

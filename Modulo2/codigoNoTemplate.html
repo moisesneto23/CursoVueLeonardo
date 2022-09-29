@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.10"></script>
+
+<div id="app">
+    <p>expressçao lambida: {{contador > 10 ? 'Maior que 10' : 'menor que 10'}} </p>
+    <p>{{ contador }}</p>
+    <button @click="aumentar()">aumentar</button>
+    <hr>
+    <h1> {{ titulo }} </h1>
+    <input type="text" v-bind="value = titulo">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            titulo: 'vuejs'
+        },
+        methods: {
+            aumentar(){
+                this.contador ++
+            }
+        }
+    })
+</script>

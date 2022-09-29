@@ -1,0 +1,67 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.10"></script>
+
+<div  id="app">
+    <H1>modificador de evento click</H1>
+    <p>enveto click contador : {{ contador }} {{nome}}</p>
+    <button v-on:click="aumentar(5,$event)">Somar</button>
+    <button @click="aumentar2()">Somar2</button>
+    <p>evento passado {{confirmado}}</p>
+    <div><button @click="aparecenome()">aparecer nome</button></div>
+    <hr>
+
+    <h2  @mousemove="atualizarxy">
+        evendo mousemove <br>
+         eixo x:{{ x }} eixo y:{{ y }} 
+    </h2>
+    
+    <hr>
+    <h2>evento keyup quando aperta qualquer tecla</h2>
+    <p >aperte qualquer tecla quando estiver na caixa de texto para aparecer um alerta</p>
+    <input type="text" @keyup="chamaalerta">
+    <p >aperte tecla enter para aparecer um alerta com modificar</p>
+    <input type="text" @keyup.enter="chamaalerta">
+    <p >aperte tecla enter+ALT para aparecer um alerta com modificar</p>
+    <input type="text" @keyup.enter.alt="chamaalerta">
+    <hr>
+    <h1>modificador de evendo</h1>
+    <a @click.prevent href="https://github.com/">este é um link que utiliza "@click.prevent" por isso nao será redirecionado para o liknk</a>
+    <hr>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0,
+            nome: '',
+            confirmado: false
+        },
+        methods: {
+            chamaalerta(){
+                alert('voce apertou uma tecla')
+            },
+            aparecenome(){
+                if(this.nome == '')
+                this.nome = 'Vitoria Cecilia'
+                else this.nome = '';
+            },
+            atualizarxy(evento){
+                this.x = evento.clientX;
+                this.y = evento.clientY;
+            },
+            aumentar(numero,evento){
+                this.contador += numero;
+                if(evento)
+                this.confirmado = true;
+                console.log(evento);
+
+            },
+            aumentar2(){
+                this.contador ++,
+                this.contador ++
+            }
+        }
+    })
+</script>
